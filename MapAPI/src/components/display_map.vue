@@ -57,11 +57,10 @@ export default {
       script.onerror = reject; // Reject the promise if there's an error loading the script
     });
 
-  // Append the script to the document head
   document.head.appendChild(script);
 
   load_map.then(() => {
-    this.initMap(); // Call this function when loaded
+    this.initMap(); // Call this function when map is loaded
   }).catch(() => {
     console.error("Error loading Google Maps API.");
   });
@@ -94,7 +93,7 @@ export default {
 
       this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(geo_locate_button);
 
-      // track current location
+      // To track current location
       geo_locate_button.addEventListener("click", () => {
           locate(this.infoWindow, this.map, this.markers);
         });
